@@ -1,17 +1,17 @@
-package com.thinking.mynotesapp.helper;
+package com.thinking.consumerapp.helper;
 
 
 import android.database.Cursor;
 
-import com.thinking.mynotesapp.db.DatabaseContract;
-import com.thinking.mynotesapp.entity.Note;
+import com.thinking.consumerapp.db.DatabaseContract;
+import com.thinking.consumerapp.entity.Note;
 
 import java.util.ArrayList;
 
 import static android.provider.BaseColumns._ID;
-import static com.thinking.mynotesapp.db.DatabaseContract.NoteColumns.TITLE;
-import static com.thinking.mynotesapp.db.DatabaseContract.NoteColumns.DESCRIPTION;
-import static com.thinking.mynotesapp.db.DatabaseContract.NoteColumns.DATE;
+import static com.thinking.consumerapp.db.DatabaseContract.NoteColumns.DATE;
+import static com.thinking.consumerapp.db.DatabaseContract.NoteColumns.DESCRIPTION;
+import static com.thinking.consumerapp.db.DatabaseContract.NoteColumns.TITLE;
 
 public class MappingHelper {
 

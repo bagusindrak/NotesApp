@@ -1,7 +1,4 @@
-package com.thinking.mynotesapp;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+package com.thinking.consumerapp;
 
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -17,18 +14,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.thinking.mynotesapp.entity.Note;
-import com.thinking.mynotesapp.helper.MappingHelper;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.thinking.consumerapp.entity.Note;
+import com.thinking.consumerapp.helper.MappingHelper;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import static com.thinking.mynotesapp.db.DatabaseContract.NoteColumns.CONTENT_URI;
-import static com.thinking.mynotesapp.db.DatabaseContract.NoteColumns.TITLE;
-import static com.thinking.mynotesapp.db.DatabaseContract.NoteColumns.DESCRIPTION;
-import static com.thinking.mynotesapp.db.DatabaseContract.NoteColumns.DATE;
+import static com.thinking.consumerapp.db.DatabaseContract.NoteColumns.CONTENT_URI;
+import static com.thinking.consumerapp.db.DatabaseContract.NoteColumns.DATE;
+import static com.thinking.consumerapp.db.DatabaseContract.NoteColumns.DESCRIPTION;
+import static com.thinking.consumerapp.db.DatabaseContract.NoteColumns.TITLE;
 
 public class NoteAddUpdateActivity extends AppCompatActivity implements View.OnClickListener {
    private EditText edtTitle, edtDescription;
@@ -67,7 +67,7 @@ public class NoteAddUpdateActivity extends AppCompatActivity implements View.OnC
       String btnTitle;
       if (isEdit) {
          // Uri yang di dapatkan disini akan digunakan untuk ambil data dari provider
-         // content://com.dicoding.picodiploma.mynotesapp/note/id
+         // content://com.dicoding.picodiploma.consumerapp/note/id
          uriWithId = Uri.parse(CONTENT_URI + "/" + note.getId());
          if (uriWithId != null) {
             Cursor cursor = getContentResolver().query(uriWithId, null, null, null, null);
@@ -116,7 +116,7 @@ public class NoteAddUpdateActivity extends AppCompatActivity implements View.OnC
 
          if (isEdit) {
             // Gunakan uriWithId untuk update
-            // content://com.dicoding.picodiploma.mynotesapp/note/id
+            // content://com.dicoding.picodiploma.consumerapp/note/id
             getContentResolver().update(uriWithId, values, null, null);
             Toast.makeText(NoteAddUpdateActivity.this, "Satu item berhasil diedit", Toast.LENGTH_SHORT).show();
             finish();
@@ -124,7 +124,7 @@ public class NoteAddUpdateActivity extends AppCompatActivity implements View.OnC
             note.setDate(getCurrentDate());
             values.put(DATE, getCurrentDate());
             // Gunakan content uri untuk insert
-            // content://com.dicoding.picodiploma.mynotesapp/note/
+            // content://com.dicoding.picodiploma.consumerapp/note/
             getContentResolver().insert(CONTENT_URI, values);
             Toast.makeText(NoteAddUpdateActivity.this, "Satu item berhasil disimpan", Toast.LENGTH_SHORT).show();
             finish();
@@ -189,7 +189,7 @@ public class NoteAddUpdateActivity extends AppCompatActivity implements View.OnC
                        finish();
                     } else {
                        // Gunakan uriWithId untuk delete
-                       // content://com.dicoding.picodiploma.mynotesapp/note/id
+                       // content://com.dicoding.picodiploma.consumerapp/note/id
                        getContentResolver().delete(uriWithId, null, null);
                        Toast.makeText(NoteAddUpdateActivity.this, "Satu item berhasil dihapus", Toast.LENGTH_SHORT).show();
                        finish();

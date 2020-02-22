@@ -1,4 +1,4 @@
-package com.thinking.mynotesapp;
+package com.thinking.consumerapp;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,10 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.thinking.mynotesapp.adapter.NoteAdapter;
-import com.thinking.mynotesapp.db.DatabaseContract;
-import com.thinking.mynotesapp.entity.Note;
-import com.thinking.mynotesapp.helper.MappingHelper;
+import com.thinking.consumerapp.adapter.NoteAdapter;
+import com.thinking.consumerapp.db.DatabaseContract;
+import com.thinking.consumerapp.entity.Note;
+import com.thinking.consumerapp.helper.MappingHelper;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements LoadNotesCallback
       setContentView(R.layout.activity_main);
 
       if (getSupportActionBar() != null)
-         getSupportActionBar().setTitle("Notes");
+         getSupportActionBar().setTitle("Consumer Notes");
       progressBar = findViewById(R.id.progressbar);
       rvNotes = findViewById(R.id.rv_notes);
       rvNotes.setLayoutManager(new LinearLayoutManager(this));
